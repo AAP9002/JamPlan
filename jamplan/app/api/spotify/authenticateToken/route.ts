@@ -1,7 +1,7 @@
 
 
 const client_id = process.env.CLIENT_ID;
-const redirect_uri = 'http://localhost:3000/api/spotify'; 
+const redirect_uri = 'http://localhost:3000/api/spotify/get100'; 
 
 export async function GET(req:Request, res:Response) {
 
@@ -16,7 +16,7 @@ export async function GET(req:Request, res:Response) {
         state: state
         });
 
-    const url = `https://accounts.spotify.com/authorize?${params.toString()}`
+    const url = `https://accounts.spotify.com/authorize?token=${params.toString()}`
     return new Response(null, {
         status: 302,
         headers: {
